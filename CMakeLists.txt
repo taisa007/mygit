@@ -3,5 +3,5 @@ project(mygit)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES mygit.c mygit.h)
+set(SOURCE_FILES mygit.c cache.h)
 add_executable(mygit ${SOURCE_FILES})
