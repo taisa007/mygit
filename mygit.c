@@ -10,6 +10,8 @@
 #define NEED_WORK_TREE (1<<3)
 #define NO_SETUP (1<<4)
 
+#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
+
 struct cmd_struct {
     const char *cmd;
     int (*fn)(int, const char **, const char *);
@@ -18,6 +20,8 @@ struct cmd_struct {
 
 static struct cmd_struct commands[] = {
         {"init", cmd_init_db, NO_SETUP},
+        {"init-db", cmd_init_db, NO_SETUP},
+        {"hash-object", cmd_hash_object}
 };
 
 int main(int argc, char *argv[])
@@ -32,11 +36,10 @@ int main(int argc, char *argv[])
     const char *arg = argv[1];
 
     // コマンドが struct の cmd と一致してたら fn を呼ぶ
-    // commandの数の取得は別途実装
-    for (i; i < 1; i++) {
+    for (i; i < ARRAY_SIZE(commands); i++) {
         struct cmd_struct *p = commands + i;
         if (!strcmp(arg, p->cmd)) {
-            p->fn(argc, argv, 'test');
+            p->fn(argc, argv, 'option');
         }
     }
 

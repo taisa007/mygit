@@ -8,5 +8,6 @@
 #include "cache.h"
 
 extern int cmd_init_db(int argc, const char **argv, const char *prefix);
+extern int cmd_hash_object(int argc, const char **argv, const char *prefix);
 
 #endif //MYGIT_BUILTIN_H_H
